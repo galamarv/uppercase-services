@@ -1,8 +1,8 @@
 package router
 
 import (
-	"github.com/galamarv/uppercase-services/api"
-	"github.com/galamarv/uppercase-services/api/middlewares"
+	"uppercase/api"
+	"uppercase/api/middlewares"
 
 	"github.com/labstack/echo/v4"
 )

@@ -1,16 +1,13 @@
 package api
 
 import (
-	"github.com/galamarv/uppercase-services/handlers"
+	"uppercase/handler"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func MainGroup(e *echo.Echo) {
 	// Route / to handler function
-	e.GET("/health-check", handlers.HealthCheck)
-
-	e.GET("/cats/:data", handlers.GetCats)
-	e.POST("/cats", handlers.AddCat)
+	e.POST("/api/uppercase", handler.UpperCase)
 
 }

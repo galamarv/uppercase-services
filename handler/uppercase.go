@@ -1,15 +1,17 @@
-package handlers
+package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
+	"strings"
+	"uppercase/vo"
 
-	"github.com/galamarv/uppercase-services/vo"
 	"github.com/labstack/echo/v4"
 )
 
-func AddCat(c echo.Context) error {
+func UpperCase(c echo.Context) error {
 	data := vo.UpperCaseData{}
 	defer c.Request().Body.Close()
 
@@ -18,6 +20,13 @@ func AddCat(c echo.Context) error {
 		log.Fatalf("Failed reading the request body %s", err)
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error)
 	}
-	log.Printf("this is yout cat %#v", data)
-	return c.String(http.StatusOK, "We got your Cat!!!")
+	//log.Printf(err)
+	strbaru := data.Text
+	res := strings.ToUpper(strbaru)
+
+	fmt.Printf(res)
+	resp := vo.UpperCaseResponse{
+		Text: res,
+	}
+	return c.JSON(http.StatusOK, resp)
 }

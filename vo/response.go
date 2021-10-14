@@ -2,5 +2,9 @@ package vo
 
 //Response
 type UpperCaseData struct {
-	text string `json:"message"`
+	Text string `json:"text"`
+}
+
+type UpperCaseResponse struct {
+	Text string `json:"text"`
 }

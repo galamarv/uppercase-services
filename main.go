@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/galamarv/uppercase-services/router"
-)
+import "uppercase/router"
 
 func main() {
 	e := router.New()
